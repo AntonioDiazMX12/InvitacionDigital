@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Invitacion Oficial Antonio y Lupita</title>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+  <!-- Refined y Olivia se declaran como familias tipográficas; si tienes sus archivos .woff2,
+       puedes colocarlos en assets/fonts/ para cargarlas localmente. -->
+  <link rel="stylesheet" href="assets/styles/styles.css">
+  <style>
+    /* Tipografías solicitadas */
+    @font-face {
+      font-family: "Refined";
+      src: url("assets/fonts/Refined.woff2") format("woff2");
+      font-display: swap;
+    }
+    @font-face {
+      font-family: "Olivia";
+      src: url("assets/fonts/Olivia.woff2") format("woff2");
+      font-display: swap;
+    }
+
+    /* Refined para títulos; Olivia para textos y subcontenidos */
+    h1, h2, h3, .bienvenida-texto, .fecha-corta {
+      font-family: "Refined";
+    }
+    p, small, .texto, .detalle, .mapa-info, .nota-musica, footer, .btn {
+      font-family: "Olivia";
+    }
+
+    /* Animaciones de entrada al desplazarse por las secciones */
+    .reveal {
+      opacity: 0;
+      transform: translateY(34px);
+      filter: blur(3px);
+      transition: opacity .8s ease, transform .8s cubic-bezier(.2,.7,.2,1), filter .8s ease;
+      will-change: opacity, transform;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+      filter: blur(0);
+    }
+    .reveal-delay-1 { transition-delay: .12s; }
+    .reveal-delay-2 { transition-delay: .24s; }
+    .reveal-delay-3 { transition-delay: .36s; }
+
+    /* Movimiento delicado para las tarjetas y fotografías */
+    .detalle, .foto, .marco, .mapa {
+      transition: transform .65s ease, box-shadow .65s ease;
+    }
+    .detalle:hover, .foto:hover {
+      transform: translateY(-5px);
+    }
+    .hero h1.visible { animation: tituloFlota .9s ease both; }
+    @keyframes tituloFlota {
+      from { letter-spacing: .02em; }
+      to { letter-spacing: .07em; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .01ms !important;
+        scroll-behavior: auto !important;
+      }
+      .reveal { opacity: 1; transform: none; filter: none; }
+    }
+  </style>
+</head>
+
+<body class="sin-scroll">
+
+  <div id="petalos"></div>
+
+  <!-- PORTADA DE BIENVENIDA -->
+  <div id="portada" class="portada">
+    <div class="bienvenida">
+      <p class="bienvenida-texto"><small>Hola, les tenemos que compartir algo.</small></p>
+      <div class="sobre" id="sobre" aria-hidden="true">
+        <svg viewBox="0 0 120 78" role="presentation" focusable="false">
+          <rect class="sobre-carta-svg" x="16" y="5" width="88" height="62" rx="2" />
+          <path class="sobre-lineas-svg" d="M35 22 H85 M35 28 H77" />
+          <rect class="sobre-base" x="2" y="18" width="116" height="58" rx="3" />
+          <path class="sobre-base" d="M3 20 L60 60 L117 20 L117 73 Q117 76 114 76 H6 Q3 76 3 73 Z" />
+          <path class="sobre-solapa-svg" d="M3 19 L60 57 L117 19 Z" />
+          <circle class="sobre-sello-svg" cx="60" cy="49" r="8" />
+          <path class="sobre-sello-centro" d="M60 43 C57 39 52 43 60 51 C68 43 63 39 60 43 Z" />
+        </svg>
+      </div>
+      <button id="aceptar" class="btn btn-aceptar" type="button">Aceptar</button>
+      <p class="nota-musica">Una invitación hecha con amor</p>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <section class="hero">
+    <p class="pre reveal"><h2>Con gran alegría les invitamos</h2></p>
+    <h1 class="reveal reveal-delay-1">Antonio &amp; Lupita</h1>
+    <p class="amp reveal reveal-delay-2">♡</p>
+    <p class="fecha-corta reveal reveal-delay-3"><small>14 · 11 · 2026</small></p>
+    <p class="scroll-hint">↓ Desliza hacia abajo ↓</p>
+    <audio id="musica" preload="auto">
+      <source src="assets/audio/cancion.mp3" type="audio/mpeg">
+    </audio>
+  </section>
+
+  <!-- HISTORIA / MENSAJE -->
+  <section>
+    <div class="marco reveal">
+      <h2>- Nuestra unión -</h2>
+      <div class="divisor"></div>
+      <p class="texto"><small>
+       La vida nos ha enseñado que las cosas más valiosas se construyen con amor, paciencia, confianza y compromiso. Hoy decidimos unir nuestras vidas con la ilusión de seguir creciendo juntos, afrontar cada desafío de la mano y celebrar todo lo bueno que nos espera. ♡
+
+Nos hace felices compartir este momento con quienes queremos y forman parte de nuestra historia. </small>
+      </p>
+    </div>
+  </section>
+
+  <!-- DETALLES -->
+  <section>
+    <h2 class="reveal">- Detalles del evento - </h2>
+    <div class="detalles">
+      <div class="detalle reveal">
+        <div class="icono">📜</div>
+        <h2>Ceremonia civil</h2>
+        <p><small>Antonio Diaz y Guadalupe Vieyra </small></p>
+      </div>
+      <div class="detalle reveal reveal-delay-1">
+        <div class="icono">📅</div>
+        <h2>Fecha y hora</h2>
+        <p><small>Sábado 14 de noviembre de 2026 · 11:30 hrs.</small></p>
+      </div>
+      <div class="detalle reveal reveal-delay-2">
+        <div class="icono">🥂</div>
+        <h2>Recepción</h2>
+        <p><small>Ceremonia · Salón Los Arcos, La Magdalena Ocotitlán, Metepec.</small></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CUENTA REGRESIVA -->
+  <section>
+    <h2 class="reveal">- Faltan -</h2>
+    <div class="countdown reveal">
+      <div><span id="dias">0</span><small>Días</small></div>
+      <div><span id="horas">0</span><small>Horas</small></div>
+      <div><span id="min">0</span><small>Min</small></div>
+      <div><span id="seg">0</span><small>Seg</small></div>
+    </div>
+  </section>
+
+  <!-- GALERÍA -->
+  <section>
+
+    <h2 class="reveal">- Nosotros - </h2>
+    <div class="galeria">
+      <div class="foto reveal" style="background-image: url('assets/images/foto1.jpg')"></div>
+     <div class="foto reveal" style="background-image: url('assets/images/foto2.jpg')"></div>
+   
+  </section>
+ 
+<center>
+ <div class="marco reveal">
+      <h2>- ¡Nos casamos! -</h2>
+      <div class="divisor"></div>
+      <p class="texto"><small>
+       Queremos compartir contigo uno de los momentos más especiales de nuestras vidas. Nos haría muy felices que formaras parte de este día tan importante, lleno de amor, ilusión y nuevos comienzos.
+
+
+Porque los momentos más bonitos de la vida se disfrutan aún más con las personas que queremos. ✨
+
+
+¡Esperamos contar contigo para celebrar juntos este capítulo tan especial de nuestra historia! 🥂 </small>
+     
+    </div>
+</center>
+
+
+  <!-- UBICACIÓN -->
+  <section>
+    <h2 class="reveal">- ¿Cómo llegar? -</h2>
+    <div class="mapa reveal">
+      <iframe src="https://www.google.com/maps?q=Metepec+Salon+Los+Arcos+Corregidora+&output=embed" loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade" title="Ubicación de la ceremonia"></iframe>
+      <div class="mapa-info">
+        <p>Salón Los Arcos, La Magdalena Ocotitlán, Metepec</p>
+        <a class="btn" href="https://maps.app.goo.gl/ackbf3y9tG4gw69L6" target="_blank" rel="noopener">Abrir en Google
+          Maps</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL -->
+  <section class="final">
+    <h2>¡Te esperamos con mucha ilusión!</h2>
+    <p class="texto reveal"><small>Con amor, Antonio &amp; Lupita</small></p>
+    <footer>Confirmanos tu asistencia.</footer>
+
+ <a class="btn" href="https://w.app/9khva6" target="_blank" rel="noopener">¡Confirmar Ahora!</a>
+  </section>
+
+  <script>
+    // Apertura del sobre y reproducción del archivo local (el navegador puede requerir interacción).
+    const musica = document.getElementById('musica');
+    const portada = document.getElementById('portada');
+    const sobre = document.getElementById('sobre');
+    const botonAceptar = document.getElementById('aceptar');
+
+    botonAceptar.addEventListener('click', () => {
+      if (musica) { musica.currentTime = 0; musica.play().catch(() => { }); }
+
+
+      botonAceptar.disabled = true;
+      botonAceptar.textContent = 'Abriendo...';
+      sobre.classList.add('abierto');
+      window.setTimeout(() => {
+        portada.classList.add('cerrada');
+        document.body.classList.remove('sin-scroll');
+        document.querySelector('.hero').scrollIntoView({ behavior: 'smooth' });
+      }, 1150);
+    });
+
+    // Animación al hacer scroll
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.15 });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    // Pétalos cayendo
+    const contenedor = document.getElementById('petalos');
+    function crearPetalo() {
+      const p = document.createElement('div');
+      p.className = 'petalo';
+      const size = 10 + Math.random() * 12;
+      p.style.width = size + 'px';
+      p.style.height = size * 1.4 + 'px';
+      p.style.left = Math.random() * 100 + 'vw';
+      const dur = 6 + Math.random() * 6;
+      p.style.animationDuration = dur + 's';
+      p.style.animationDelay = Math.random() * 2 + 's';
+      contenedor.appendChild(p);
+      setTimeout(() => p.remove(), (dur + 2) * 1000);
+    }
+    setInterval(crearPetalo, 400);
+
+    // Cuenta regresiva
+    const boda = new Date('2026-11-14T14:00:00').getTime();
+    function actualizar() {
+      const diff = boda - Date.now();
+      if (diff <= 0) return;
+      document.getElementById('dias').textContent = Math.floor(diff / 86400000);
+      document.getElementById('horas').textContent = Math.floor(diff / 3600000) % 24;
+      document.getElementById('min').textContent = Math.floor(diff / 60000) % 60;
+      document.getElementById('seg').textContent = Math.floor(diff / 1000) % 60;
+    }
+    actualizar();
+    setInterval(actualizar, 1000);
+
+  </script>
+</body>
+
+</html>
